@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": "What is a binary search tree?"
+  },
+  {
+    "role": "assistant",
+    "content": "A binary search tree (BST) is a data structure where each node has at most two children. Why do you think it's called a 'search' tree?"
+  },
+  {
+    "role": "user",
+    "content": "Maybe because we use it to search for things quickly?"
+  },
+  {
+    "role": "assistant",
+    "content": "Exactly! Now, can you think of how the properties of a binary search tree help with efficient searching?"
+  },
+  {
+    "role": "user",
+    "content": "I think it has something to do with the way the nodes are arranged."
+  },
+  {
+    "role": "assistant",
+    "content": "You're on the right track! In a BST, for any given node, all elements in its left subtree are smaller and all elements in its right subtree are larger. How do you think this property affects the time complexity of search operations?"
+  }
+]

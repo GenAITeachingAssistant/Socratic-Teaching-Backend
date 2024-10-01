@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 
-const User = require("../model/userModel");
+const User = require("../models/userModel");
 
 const protect = async (req, res, next) => {
   try {

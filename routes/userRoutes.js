@@ -3,7 +3,7 @@ const {
   login,
   setAvatar,
   getAllUsers,
-} = require("../controller/userController");
+} = require("../controllers/userController");
 
 const { protect } = require("../middleware/protect");
 
