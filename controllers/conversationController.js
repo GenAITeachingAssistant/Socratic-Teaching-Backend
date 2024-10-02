@@ -4,7 +4,9 @@ const getAllConversations = async (req, res, next) => {
   try {
     const conversations = await Conversation.find({
       userID: req.user._id,
-    }).sort({ updatedAt: -1 });
+    })
+      .sort({ updatedAt: -1 })
+      .select("-messages");
 
     return res.status(200).json({ success: true, conversations });
   } catch (error) {
