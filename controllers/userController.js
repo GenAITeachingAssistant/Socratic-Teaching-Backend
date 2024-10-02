@@ -4,7 +4,13 @@ const User = require("../models/userModel");
 
 const signup = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, firstName, lastName } = req.body;
+
+    if (!email || !password || !firstName || !lastName)
+      return res.status(400).json({
+        success: false,
+        message: "Please fill all the fields",
+      });
 
     const emailCheck = await User.findOne({ email });
 
@@ -16,6 +22,8 @@ const signup = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
+      firstName,
+      lastName,
       email,
       password: hashedPassword,
     });
@@ -24,6 +32,8 @@ const signup = async (req, res, next) => {
       success: true,
       user: {
         _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
         avatarImage: user.avatarImage,
       },
@@ -61,6 +71,8 @@ const login = async (req, res, next) => {
       success: true,
       user: {
         _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
         avatarImage: user.avatarImage,
       },
